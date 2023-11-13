@@ -1,10 +1,15 @@
+require("dotenv/config");
+
 const express = require("express");
-const app = express();
+const cors = require("cors");
+const allRoutes = require("./routes");
+const db_connect = require("./config/db");
 
 const PORT = process.env.PORT || 3000;
 
-const allRoutes = require("./routes");
-const db_connect = require("./config/db");
+const app = express();
+
+app.use(cors());
 
 db_connect
   .then(() => {
@@ -20,3 +25,5 @@ app.use(allRoutes);
 app.listen(PORT, () => {
   console.log("server running on port " + PORT);
 });
+
+module.exports = app;

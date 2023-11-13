@@ -10,7 +10,15 @@ module.exports = {
     });
   },
 
-  getTodoById: (req, res) => {},
+  getTodoById: (req, res) => {
+    const { id } = req.params;
+    const todos = Todo.find((todos) => todos.id == id);
+
+    res.status(200).json({
+      message: "Success get data todo by id",
+      data: todos,
+    });
+  },
 
   createTodo: async (req, res) => {
     let data = req.body;
