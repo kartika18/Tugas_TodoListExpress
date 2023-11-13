@@ -8,6 +8,6 @@ const route = express.Router();
 
 route.get("/", getAllUser);
 route.get("/:id", getUserById);
-route.get("/", createUser);
+route.post("/", createUser);
 
 module.exports = route;

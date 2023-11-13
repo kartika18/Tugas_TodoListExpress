@@ -6,7 +6,7 @@ const userRoute = require("./user_route");
 route.get("/", (req, res) => {
   res.json("ini dari express mongoose");
 });
-route.use("/user", userRoute);
+route.use("/users", userRoute);
 // route.use("/user", userRoute);
 // route.use("/user", userRoute);
 
