@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Todo = require("../models/todo");
 
 module.exports = {
   getAllUser: async (req, res) => {
@@ -11,6 +12,17 @@ module.exports = {
   },
 
   getUserById: (req, res) => {},
+
+  getUserTodos: async (req, res) => {
+    const { id } = req.params;
+
+    const todos = await Todo.find({ userID: id });
+
+    res.status(200).json({
+      message: "Succes get Todos by id",
+      data: todos,
+    });
+  },
 
   createUser: async (req, res) => {
     let data = req.body;
