@@ -16,7 +16,7 @@ module.exports = {
   getUserTodos: async (req, res) => {
     const { id } = req.params;
 
-    const todos = await Todo.find({ userID: id });
+    const todos = await Todo.find({ user_id: id });
 
     res.status(200).json({
       message: "Succes get Todos by id",
