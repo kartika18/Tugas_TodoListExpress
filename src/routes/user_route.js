@@ -5,11 +5,12 @@ const {
   createUser,
   getUserTodos,
 } = require("../controllers/user_controller");
+const verifyToken = require("../middleware/auth");
 const route = express.Router();
 
 route.get("/", getAllUser);
-route.get("/:id", getUserById);
-route.get("/:id/todos", getUserTodos);
+route.get("/:id", verifyToken, getUserById);
+route.get("/:id/todos", verifyToken, getUserTodos);
 route.post("/", createUser);
 
 module.exports = route;

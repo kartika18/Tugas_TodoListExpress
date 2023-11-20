@@ -4,10 +4,11 @@ const {
   getTodoById,
   createTodo,
 } = require("../controllers/todo_controller");
+const verifyToken = require("../middleware/auth");
 
 const route = express.Router();
 
-route.get("/", getAllTodo);
+route.get("/", verifyToken, getAllTodo);
 route.get("/:id", getTodoById);
 route.post("/", createTodo);
 

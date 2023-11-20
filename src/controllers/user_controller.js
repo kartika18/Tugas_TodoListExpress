@@ -19,7 +19,7 @@ module.exports = {
     const todos = await Todo.find({ user_id: id });
 
     res.status(200).json({
-      message: "Succes get Todos by id",
+      message: "Success get Todos by id",
       data: todos,
     });
   },
